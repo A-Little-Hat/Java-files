@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 // Merge sort in Java
 
-class Main {
+class MergeSort {
 
   // Merge two sub arrays L and M into array
   void merge(int array[], int p, int q, int r) {
@@ -56,7 +56,7 @@ class Main {
   }
 
   // Divide the array into two sub arrays, sort them and merge them
-  void mergeSort(int array[], int left, int right) {
+  public void mergeSort(int array[], int left, int right) {
     if (left < right) {
 
       // m is the point where the array is divided into two sub arrays
@@ -76,7 +76,7 @@ class Main {
     // created an unsorted array
     int[] array = { 6, 5, 12, 10, 9, 1 };
 
-    Main ob = new Main();
+    MergeSort ob = new MergeSort();
 
     // call the method mergeSort()
     // pass argument: array, first index and last index

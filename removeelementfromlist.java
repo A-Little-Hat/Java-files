@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-class Main {
+class removeelementfromlist {
   public static void main(String[] args) {
     LinkedList<String> languages = new LinkedList<>();
 

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main {
+class circumference_of_circle {
 
     public static double PI = 3.1428;
 
