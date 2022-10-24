@@ -1,4 +1,4 @@
-public class RightDownMirrorPattern  
+class RightDownMirrorPattern  
 {  
 public static void main(String args[])  
 {  
