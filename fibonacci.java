@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Main
+public class fibonacci
 {
     public static void main(String[] args) 
     {
@@ -15,5 +15,6 @@ public class Main
             c = a + b;
             System.out.print(a+" ");
         }
+        sc.close();
     }
 }
