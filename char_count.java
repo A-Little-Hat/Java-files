@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Main {
+class char_count {
 
   /*
   s = aabbbcc
@@ -29,11 +29,13 @@ class Main {
 
   public static void main(String args[]) {
 
-    Scanner in = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     System.out.print("Enter the string: ");
-    String s = in .nextLine();
+    String s = sc.nextLine();
 
     System.out.println("Output: string with char count");
     System.out.println(format_string_with_char_count(s));
+
+    sc.close();
   }
 }

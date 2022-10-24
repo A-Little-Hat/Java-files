@@ -9,6 +9,7 @@ class Number {
     Scanner input = new Scanner(System.in);
     num = input.nextInt();
     System.out.println("You entered: " + num);
+    input.close();
   }
 
   boolean checkAutomorphic(int n) {
@@ -69,5 +70,7 @@ class Number {
       System.out.println("press any key to continue...enter 0 to exit...");
       ch = in.next().charAt(0);
     } while (ch != '0');
+    in.close();
+  
   }
 }

@@ -1,5 +1,5 @@
 import java.util.*;
-class Main {
+class datatype {
   public static void main(String args[]) {
     int n; 
     double d;
