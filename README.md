@@ -4,4 +4,4 @@ Java is a programming language and computing platform first released by Sun Micr
 
 ## Hacktoberfest is a month-long celebration of open source projects, their maintainers, and the entire community of contributors. Each October, open source maintainers give new contributors extra attention as they guide developers through their first pull requests on GitHub.
 
-<img src="https://pbs.twimg.com/card_img/1580904894860787713/Js6MwqKb?format=jpg&name=4096x4096" >
+<img src="https://hacktoberfest.com/_next/static/media/logo-hacktoberfest--horizontal.ebc5fdc8.svg" >
