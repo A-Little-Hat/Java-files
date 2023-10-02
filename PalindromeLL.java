@@ -1,7 +1,7 @@
 public class PalindromeLL {
 
-    //Represent a node of the singly linked list
-    class Node{
+    // Represent a node of the singly linked list
+    class Node {
         int data;
         Node next;
 
@@ -11,102 +11,90 @@ public class PalindromeLL {
         }
     }
 
-    public int size;
-    //Represent the head and tail of the singly linked list
+    // Represent the head and tail of the singly linked list
     public Node head = null;
-    public Node tail = null;
 
-    //addNode() will add a new node to the list
+    // Add a node to the end of the list
     public void addNode(int data) {
-        //Create a new node
+        // Create a new node
         Node newNode = new Node(data);
 
-        //Checks if the list is empty
-        if(head == null) {
-            //If list is empty, both head and tail will point to new node
+        if (head == null) {
+            // If the list is empty, set the new node as both head and tail
             head = newNode;
-            tail = newNode;
-        }
-        else {
-            //newNode will be added after tail such that tail's next will point to newNode
-            tail.next = newNode;
-            //newNode will become new tail of the list
-            tail = newNode;
-        }
-        //Size will count the number of nodes present in the list
-        size++;
-    }
-
-    //reverseList() will reverse the singly linked list and return the head of the list
-    public Node reverseList(Node temp){
-        Node current = temp;
-        Node prevNode = null, nextNode = null;
-
-       //Swap the previous and next nodes of each node to reverse the direction of the list
-        while(current != null){
-            nextNode = current.next;
-            current.next = prevNode;
-            prevNode = current;
-            current = nextNode;
-        }
-        return prevNode;
-    }
-
-    //isPalindrome() will determine whether given list is palindrome or not.
-    public void isPalindromeLL(){
-        Node current = head;
-        boolean flag = true;
-
-        //Store the mid position of the list
-        int mid = (size%2 == 0)? (size/2) : ((size+1)/2);
-
-        //Finds the middle node in given singly linked list
-        for(int i=1; i<mid; i++){
-            current = current.next;
-        }
-
-        //Reverse the list after middle node to end
-        Node revHead = reverseList(current.next);
-
-        //Compare nodes of first half and second half of list
-        while(head != null && revHead != null){
-            if(head.data != revHead.data){
-                flag = false;
-                break;
-            }
-            head = head.next;
-            revHead = revHead.next;
-        }
-
-        if(flag)
-            System.out.println("Given singly linked list is a palindrome");
-        else
-            System.out.println("Given singly linked list is not a palindrome");
-    }
-
-    //display() will display all the nodes present in the list
-        public void display() {
-            //Node current will point to head
+        } else {
+            // Otherwise, find the current tail and update its next pointer
             Node current = head;
-
-            if(head == null) {
-                System.out.println("List is empty");
-                return;
-            }
-            System.out.println("Nodes of singly linked list: ");
-            while(current != null) {
-                //Prints each node by incrementing pointer
-                System.out.print(current.data + " ");
+            while (current.next != null) {
                 current = current.next;
             }
-            System.out.println();
+            current.next = newNode;
+        }
+    }
+
+    // Reverse the linked list and return the new head
+    public Node reverseList(Node head) {
+        Node prev = null;
+        Node current = head;
+        while (current != null) {
+            Node next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        return prev;
+    }
+
+    // Check if the linked list is a palindrome
+    public boolean isPalindromeLL() {
+        if (head == null || head.next == null) {
+            // An empty list or a list with a single element is a palindrome
+            return true;
+        }
+
+        // Use the slow and fast pointers technique to find the middle of the list
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Reverse the second half of the list
+        Node reversedSecondHalf = reverseList(slow);
+
+        // Compare the first half and reversed second half
+        Node firstHalf = head;
+        while (reversedSecondHalf != null) {
+            if (firstHalf.data != reversedSecondHalf.data) {
+                return false;
+            }
+            firstHalf = firstHalf.next;
+            reversedSecondHalf = reversedSecondHalf.next;
+        }
+
+        return true;
+    }
+
+    // Display the linked list
+    public void display() {
+        Node current = head;
+        if (current == null) {
+            System.out.println("List is empty");
+            return;
+        }
+        System.out.println("Nodes of singly linked list:");
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
-
         PalindromeLL sList = new PalindromeLL();
 
-        //Add nodes to the list
+        // Add nodes to the list
         sList.addNode(1);
         sList.addNode(2);
         sList.addNode(3);
@@ -115,7 +103,12 @@ public class PalindromeLL {
 
         sList.display();
 
-        //Checks whether given list is palindrome or not
-        sList.isPalindromeLL();
+        // Check if the list is a palindrome
+        boolean isPalindrome = sList.isPalindromeLL();
+        if (isPalindrome) {
+            System.out.println("Given singly linked list is a palindrome");
+        } else {
+            System.out.println("Given singly linked list is not a palindrome");
+        }
     }
 }
