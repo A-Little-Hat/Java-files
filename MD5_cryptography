@@ -1,0 +1,31 @@
+import java.util.*;
+import java.security.*;
+
+public class MD5_cryptography {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input= sc.nextLine();
+        try
+        {
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            md5.update(input.getBytes());
+            byte[] digest = md5.digest();
+
+            StringBuilder sb = new StringBuilder();
+            for (byte b : digest) 
+            {
+            //converting byte to hexadecimal
+            sb.append(String.format("%02x",b));
+
+            }
+            System.out.println(sb.toString());
+
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+}
